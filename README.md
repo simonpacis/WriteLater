@@ -75,6 +75,15 @@ Will list all current replacement keys and their status as defined in their seco
 
 The list action runs the prep action automatically.
 
+## Configuration File
+If you have custom arguments that you want to run everytime in that directory, instead of using command-line arguments, you can create a file called
+
+```
+.wlconfig
+```
+
+And use INI syntax to define those arguments.
+
 Project is very new, documentation is bad.
 Will get better.
 Try it out!

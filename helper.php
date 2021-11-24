@@ -7,6 +7,18 @@ class Helper
 	public function get($key)
 	{
 		global $getopts;
+		$config = null;
+		if(file_exists('.wlconfig') && $config == null)
+		{
+			$config = parse_ini_file('.wlconfig');
+		}
+		if($config != null)
+		{
+			if(array_key_exists($key, $config))
+			{
+				return $config[$key];
+			}
+		}
 		return $getopts->get($key);
 	}
 

@@ -4,6 +4,7 @@ use Stringy\Stringy as S;
 function performReplacement()
 {
 	global $helper;
+	performPrep(false);
 	$mainfile_raw = $helper->getMainFile();
 	$mainfile = S::create($mainfile_raw);
 	$tags = $helper->parseFile(false);

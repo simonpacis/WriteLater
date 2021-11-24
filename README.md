@@ -88,7 +88,7 @@ Here are contents of an example INI file:
 ```
 action=replace
 insertion-tag=&
-output-file=Final.m,d
+output-file=Final.md
 
 ```
 

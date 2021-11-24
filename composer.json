@@ -1,0 +1,7 @@
+{
+    "require": {
+        "fostam/getopts": "^1.2",
+        "jc21/clitable": "^1.2",
+        "danielstjules/stringy": "^3.1"
+    }
+}

@@ -45,5 +45,12 @@ $getopts->addOption('alphabetical')
 		->description('Only relevant for the list action. If "true", sorts table alphabetically. If "false", sorts by occurence in document. Defaults to "true".')
 		->defaultValue('true');
 
+$getopts->addOption('status')
+		->short('t')
+		->long('status')
+		->argument('status')
+		->description('Only relevant for the list action. Limits the returned tags for the table by the entered status. Optional. Example: "pending" would return all tags with the Pending status.')
+		->defaultValue('all');
+
 $getopts->parse();
 

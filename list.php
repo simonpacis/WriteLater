@@ -16,6 +16,22 @@ function performList()
 	{
 		usort($results, function($a, $b){ return strcmp($a["name"], $b["name"]); });
 	}
+	if($helper->get('status') != "all")
+	{
+		$new_results = [];
+		$status = $helper->get('status');
+		$i = 0;
+		foreach($results as $result)
+		{
+			if(strtolower($result['status'] != strtolower($status))
+			{
+				unset($results[$i]);
+				$results = array_values($results);
+			}
+		$i++;
+
+		}
+	}
 	$table->injectData($results);
 	$table->display();
 

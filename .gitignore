@@ -6,3 +6,4 @@ Session.vim
 composer.lock
 :w
 *.swp
+.DS_Store

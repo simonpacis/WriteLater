@@ -5,4 +5,4 @@ Output.md
 Session.vim
 composer.lock
 :w
-.swp
+*.swp

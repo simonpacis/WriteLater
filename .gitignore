@@ -1,0 +1,7 @@
+/vendor
+Main.md
+Output.md
+/Subfiles
+Session.vim
+composer.lock
+:w

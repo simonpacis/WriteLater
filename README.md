@@ -31,3 +31,20 @@ This creates a file "Background.md" in the directory "Subfiles", with the follow
 Underneath the second line you can type whatever you want to, and when run through Write Parse with the replace action [§Background Background info for this part would be nice.] will be replaced with the contents of Background.md.
 
 Both of the first two lines will not be included in your Markdown document, as they are comments.
+
+## Installation
+
+Download the directory, and run composer install in the Terminal.
+Then run php wl.php --help to figure out what arguments to pass, but generally only two things are needed:
+
+```
+php wl.php --action replace
+```
+
+Which will process the files and replace replacement keys with their corresponding Markdown files from the Subfiles directory.
+
+```
+php wl.php --action list 
+```
+
+Will list all current replacement keys and their status as defined in their second line.

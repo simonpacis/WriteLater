@@ -55,7 +55,9 @@ Which will process the files and replace replacement keys with their correspondi
 php wl.php --action list 
 ```
 
-Will list all current replacement keys and their status as defined in their second line.
+Will list all current replacement keys and their status as defined in their second line, as such:
+
+<img width="588" alt="Screen Shot 2021-11-23 at 10 14 57 PM" src="https://user-images.githubusercontent.com/7118482/143184862-7e56fa80-aa39-4ce6-8975-8ea39296ca36.png">
 
 Project is very new, documentation is bad.
 Will get better.

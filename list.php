@@ -18,12 +18,11 @@ function performList()
 	}
 	if($helper->get('status') != "all")
 	{
-		$new_results = [];
 		$status = $helper->get('status');
 		$i = 0;
 		foreach($results as $result)
 		{
-			if(strtolower($result['status'] != strtolower($status))
+			if(strcmp(strtolower($result['status']),strtolower($status)) != 0)
 			{
 				unset($results[$i]);
 				$results = array_values($results);

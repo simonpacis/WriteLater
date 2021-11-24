@@ -20,6 +20,17 @@ function performReplacement()
 
 		$file = file_get_contents($helper->get('subFileDirectory') . "/" . $tag['name'] . ".md");
 
+		$file = explode("\n", $file);
+		var_dump($file[0]);
+		unset($file[0]);
+		$file = array_values($file);
+		var_dump($file[0]);
+		$file = array_values($file);
+		unset($file[0]);
+		$file = array_values($file);
+		var_dump($file);
+		$file = join("\n", $file);
+
 		$substr = substr($mainfile_raw, $index, ($end_index - ($index-1)));
 
 		$mainfile_raw = str_replace($substr, $file, $mainfile_raw);

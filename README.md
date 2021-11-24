@@ -43,13 +43,19 @@ Then run
 ```
 php wl.php --help
 ```
-to figure out what arguments to pass, but generally only two things are needed:
+to figure out what arguments to pass, but generally only three things are needed:
 
 ```
 php wl.php --action replace
 ```
 
 Which will process the files and replace replacement keys with their corresponding Markdown files from the Subfiles directory.
+
+```
+php wl.php --action prep
+```
+
+Which will create all the necessary Markdown files based on your replacement keys.
 
 ```
 php wl.php --action list 

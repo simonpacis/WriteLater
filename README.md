@@ -48,3 +48,7 @@ php wl.php --action list
 ```
 
 Will list all current replacement keys and their status as defined in their second line.
+
+Project is very new, documentation is bad.
+Will get better.
+Try it out!

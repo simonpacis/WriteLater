@@ -28,7 +28,12 @@ This creates a file "Background.md" in the directory "Subfiles", with the follow
 
 ```
 
-Underneath the second line you can type whatever you want to, and when run through Write Later with the replace action [§Background Background info for this part would be nice.] will be replaced with the contents of Background.md.
+Underneath the second line you can type whatever you want to, and when run through Write Later with the replace action 
+
+```
+[§Background Background info for this part would be nice.]
+```
+will be replaced with the contents of Background.md.
 
 Both of the first two lines will not be included in your Markdown document, as they are comments.
 

@@ -83,6 +83,14 @@ If you have custom arguments that you want to run everytime in that directory, i
 ```
 
 And use INI syntax to define those arguments.
+Here are contents of an example INI file:
+
+```
+action=replace
+insertion-tag=&
+output-file=Final.m,d
+
+```
 
 Project is very new, documentation is bad.
 Will get better.

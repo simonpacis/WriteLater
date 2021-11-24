@@ -36,7 +36,7 @@ Underneath the second line you can type whatever you want to, and when run throu
 
 will be replaced with the contents of Background.md.
 
-Both of the first two lines will not be included in your Markdown document, as they are comments.
+Both of the first two lines will not be included in your output document.
 
 ## Installation
 

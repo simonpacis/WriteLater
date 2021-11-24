@@ -38,5 +38,12 @@ $getopts->addOption('tag')
 		->description('Tag which Write Later should mark as the replacement tag, and insert the corresponding Markdown file from the subfile directory. Defaults to "§", which would make the replacement tag [§Key Description]. Description is optional.')
 		->defaultValue('§');
 
+$getopts->addOption('alphabetical')
+		->short('l')
+		->long('alphabetical')
+		->argument('alphabetical')
+		->description('Only relevant for the list action. If "true", sorts table alphabetically. If "false", sorts by occurence in document. Defaults to "true".')
+		->defaultValue('true');
+
 $getopts->parse();
 

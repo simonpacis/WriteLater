@@ -12,7 +12,10 @@ function performList()
 	$table->addField('Tag', 'name');
 	$table->addField('Description', 'description');
 	$table->addField('Status', 'status');
-	usort($results, function($a, $b){ return strcmp($a["name"], $b["name"]); });
+	if($helper->get('alphabetical') == "true")
+	{
+		usort($results, function($a, $b){ return strcmp($a["name"], $b["name"]); });
+	}
 	$table->injectData($results);
 	$table->display();
 

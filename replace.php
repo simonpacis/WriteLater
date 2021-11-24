@@ -15,7 +15,7 @@ function performReplacement()
 		$tag_start = '['.$tag_marker;
 		$tag_end = ']';
 
-		$index = strpos($mainfile_raw, $tag_start . $tag['name'], $end_index);
+		$index = strpos($mainfile_raw, $tag_start . $tag['name']);
 		$end_index = strpos($mainfile_raw, $tag_end, $index);
 
 		$file = file_get_contents($helper->get('subFileDirectory') . "/" . $tag['name'] . ".md");
@@ -31,14 +31,12 @@ function performReplacement()
 
 		$mainfile_raw = str_replace($substr, $file, $mainfile_raw);
 
-		
-
 	}
 
 
 	file_put_contents($helper->get('outputFile'), $mainfile_raw);
 
-	echo "Saved.";
+	echo "Replacement tags replaced, file saved as \"".$helper->get('outputFile')."\".";
 
 
 

@@ -34,7 +34,11 @@ Both of the first two lines will not be included in your Markdown document, as t
 
 ## Installation
 
-Download the directory, and run composer install in the Terminal.
+Download the directory, and run
+```
+composer install
+```
+in the Terminal.
 Then run php wl.php --help to figure out what arguments to pass, but generally only two things are needed:
 
 ```

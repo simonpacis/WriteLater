@@ -39,7 +39,11 @@ Download the directory, and run
 composer install
 ```
 in the Terminal.
-Then run php wl.php --help to figure out what arguments to pass, but generally only two things are needed:
+Then run
+```
+php wl.php --help
+```
+to figure out what arguments to pass, but generally only two things are needed:
 
 ```
 php wl.php --action replace

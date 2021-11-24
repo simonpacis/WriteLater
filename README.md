@@ -56,6 +56,8 @@ php wl.php --action replace
 ```
 
 Which will process the files and replace replacement keys with their corresponding Markdown files from the Subfiles directory.
+The replace action runs the prep action automatically.
+
 
 ```
 php wl.php --action prep

@@ -7,7 +7,7 @@ At the same time i use Pandoc for my citations, which use the syntax [@Key Pages
 So, I started work on Write Later.
 In your Markdown document, when there's something you want to Write Later, simply insert the replacement key [§Key Description (optional)].
 
-When run through Write Later it creates a Markdown file for each replacement key.
+When run through Write Later it creates a Markdown file for each replacement key in a directory.
 
 So, here's an example:
 

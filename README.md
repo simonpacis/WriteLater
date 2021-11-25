@@ -91,7 +91,11 @@ insertion-tag=&
 output-file=Final.md
 ```
 
+Normally, the configuration file takes precedence over all command-line entered arguments, but if you want to reverse that, simply use the argument
 
+```
+--override true
+```
 
 Project is very new, documentation is bad.
 Will get better.

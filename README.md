@@ -97,6 +97,8 @@ Normally, the configuration file takes precedence over all command-line entered 
 --override true
 ```
 
+Which would mean that entered command-line arguments that conflict with the configuration file would take precedence.
+
 Project is very new, documentation is bad.
 Will get better.
 Try it out!

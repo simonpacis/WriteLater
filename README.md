@@ -53,6 +53,7 @@ curl -LJO https://github.com/simonpacis/WriteLater/blob/main/dist/write-later.ph
 And you're all set.
 Make sure PHP is installed prior to this.
 
+### Install locally as a PHP-file
 Download the directory, and run
 ```
 composer install

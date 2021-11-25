@@ -76,6 +76,9 @@ Will list all current replacement keys and their status as defined in their seco
 The list action runs the prep action automatically.
 
 ### Install to path
+You want to run Write Later globally on your system?
+How to?
+
 Eventually I'll probably bundle it as a phar, but the project is not set up for that at the moment.
 I recommend you put the entire directory in a script collection directory somewhere (e.g.
 Documents/Scripts/WriteLater), and create a file with the following contents:

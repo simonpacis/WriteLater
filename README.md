@@ -84,9 +84,9 @@ So, I recommend you put the entire WriteLater directory in a script collection d
 Documents/Scripts/WriteLater), and create a file with the following contents:
 
 ```
-#!/usr/bin/env php
-
-php ~/Documents/Scripts/WriteLater/wl.php $@
+#!/usr/bin/env bash
+PHP=`which php`
+$PHP ~/Documents/Scripts/WriteLater/wl.php $@
 ```
 
 And then save it as 

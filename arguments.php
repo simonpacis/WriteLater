@@ -60,5 +60,12 @@ $getopts->addOption('override')
 		->description('For any conflicts between command-line arguments and configuration file, the command-line arguments will take precedence if set to true. Defaults to "false".')
 		->defaultValue('empty');
 
+$getopts->addOption('save')
+		->short('e')
+		->long('save')
+		->argument('save')
+		->description('When set to true, saves the entered command line arguments as a .wlconfig file, so you can simply run "wl" next time to run Write Later with the same arguments. Will override existing .wlconfig. Defaults to "false".')
+		->defaultValue('empty');
+
 $getopts->parse();
 

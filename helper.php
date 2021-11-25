@@ -4,13 +4,11 @@ use Stringy\Stringy as S;
 class Helper
 {
 
-	public function get($key)
+	public $defaults;
+
+	public function __construct()
 	{
-		global $getopts;
-
-		// Why the defaults array? We cannot deduce from $getopts->get() whether we're getting the default value or a user-entered value. So we set default to "empty", and then when we encouter an "empty" value, that means the user has not entered anything and it should use the default value from the defaults array.
-		$defaults = [
-
+		$this->defaults = [
 			"action" => "parse",
 			"mainFile" => "Main.md",
 			"outputFile" => "Output.md",
@@ -18,8 +16,18 @@ class Helper
 			"tag" => "§",
 			"alphabetical" => "true",
 			"status" => "all",
-			"override" => "false"
+			"override" => "false",
+			'save' => 'false'
 		];
+
+	}
+
+	public function get($key)
+	{
+		global $getopts;
+
+		// Why the defaults array? We cannot deduce from $getopts->get() whether we're getting the default value or a user-entered value. So we set default to "empty", and then when we encouter an "empty" value, that means the user has not entered anything and it should use the default value from the defaults array.
+		$defaults = $this->defaults;
 
 		$config = null;
 		if(file_exists('.wlconfig') && $config == null)
@@ -134,6 +142,32 @@ class Helper
 		}
 
 		return $tags;
+
+	}
+
+
+	public function argToConfig()
+	{
+		global $getopts;
+		$config_string = "";
+
+		$i = 0;
+		foreach($this->defaults as $key => $value)
+		{
+			if($getopts->get($key) != "empty" && $key != "save")
+			{
+
+				if($i != 0)
+				{
+					$config_string .= "\n";
+				}
+				$config_string .= $key . "=" . $getopts->get($key) . "\n";
+
+			}
+		}
+		file_put_contents('.wlconfig', $config_string);
+		return true;
+
 
 	}
 

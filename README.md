@@ -107,9 +107,18 @@ Here are the contents of an example ini file:
 
 ```
 action=replace
-insertion-tag=&
-output-file=Final.md
+insertionTag=&
+outputFile=Final.md
 ```
+
+It might be a little hard to figure out exactly what the arguments are called, so you can have Write Later generate the configuration file for you.
+Enter your desired arguments in the commandline, and add the 
+
+```
+--save true
+```
+
+parameter, and Write Later will automaticall generate the .wlconfig file for you, and enter your chosen arguments.
 
 Normally, the configuration file takes precedence over all command-line entered arguments, but if you want to reverse that, simply use the argument
 

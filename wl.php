@@ -18,6 +18,11 @@ require_once('prep.php');
 require_once('replace.php');
 require_once('list.php');
 
+if($getopts->get('save') == 'true')
+{
+	$helper->argToConfig();
+}
+
 switch($helper->get('action'))
 {
 case 'replace':

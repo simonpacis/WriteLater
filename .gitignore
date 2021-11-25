@@ -9,3 +9,4 @@ composer.lock
 .DS_Store
 .wlconfig
 phar-composer.phar
+NOTES.md

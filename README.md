@@ -83,7 +83,7 @@ If you have custom arguments that you want to run everytime in that directory, i
 ```
 
 And use ini syntax to define those arguments.
-Here are contents of an example INI file:
+Here are contents of an example ini file:
 
 ```
 action=replace

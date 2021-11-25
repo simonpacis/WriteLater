@@ -84,6 +84,14 @@ Documents/Scripts/WriteLater), and create a file with the following contents:
 #!/usr/bin/env php
 
 php ~/Documents/Scripts/WriteLater/wl.php $@
+```
+
+And then save it was wl in the /usr/local/bin directory.
+Then run the command:
+
+```
+chmod +x wl
+```
 
 ## Configuration File
 If you have custom arguments that you want to run everytime in that directory, instead of using command-line arguments, you can create a file called

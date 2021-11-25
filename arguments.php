@@ -8,49 +8,58 @@ $getopts->addOption('action')
 		->long('action')
 		->argument('action')
 		->description('The action you want Write Later to perform. Options include: replace:|prep|list. Defaults to "replace".')
-		->defaultValue('parse');
+		->defaultValue('empty');
+//		->defaultValue('parse');
 
 $getopts->addOption('mainFile')
 		->short('m')
 		->long('main-file')
 		->argument('main-file')
 		->description('the main Markdown file that Write Later should parse from. Defaults to "Main.md".')
-		->defaultValue('Main.md');
+		->defaultValue('empty');
 
 $getopts->addOption('outputFile')
 		->short('o')
 		->long('output-file')
 		->argument('output-file')
 		->description('The file that will be outputted with all files from the subfile directory inserted. Defaults to "Output.md".')
-		->defaultValue('Output.md');
+		->defaultValue('empty');
 
 $getopts->addOption('subFileDirectory')
 		->short('s')
 		->long('sub-dir')
 		->argument('subfile-directory')
 		->description('Directory which contains the Markdown files to be inserted into the final output. Defaults to "Subfiles".')
-		->defaultValue('Subfiles');
+		->defaultValue('empty');
 
 $getopts->addOption('tag')
 		->short('t')
 		->long('tag')
 		->argument('insertion-tag')
 		->description('Tag which Write Later should mark as the replacement tag, and insert the corresponding Markdown file from the subfile directory. Defaults to "§", which would make the replacement tag [§Key Description]. Description is optional.')
-		->defaultValue('§');
+		->defaultValue('empty');
 
 $getopts->addOption('alphabetical')
 		->short('l')
 		->long('alphabetical')
 		->argument('alphabetical')
 		->description('Only relevant for the list action. If "true", sorts table alphabetically. If "false", sorts by occurence in document. Defaults to "true".')
-		->defaultValue('true');
+		->defaultValue('empty');
 
 $getopts->addOption('status')
 		->short('t')
 		->long('status')
 		->argument('status')
 		->description('Only relevant for the list action. Limits the returned tags for the table by the entered status. Optional. Example: "pending" would return all tags with the Pending status.')
-		->defaultValue('all');
+		->defaultValue('empty');
+
+$getopts->addOption('override')
+		->short('r')
+		->long('override')
+		->argument('override')
+		->description('')
+		->defaultValue('empty');
+
 
 $getopts->parse();
 

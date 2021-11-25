@@ -89,7 +89,6 @@ Here are contents of an example INI file:
 action=replace
 insertion-tag=&
 output-file=Final.md
-
 ```
 
 Project is very new, documentation is bad.

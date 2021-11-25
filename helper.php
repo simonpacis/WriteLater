@@ -7,19 +7,56 @@ class Helper
 	public function get($key)
 	{
 		global $getopts;
+
+		// Why the defaults array? We cannot deduce from $getopts->get() whether we're getting the default value or a user-entered value. So we set default to "empty", and then when we encouter an "empty" value, that means the user has not entered anything and it should use the default value from the defaults array.
+		$defaults = [
+
+			"action" => "parse",
+			"mainFile" => "Main.md",
+			"outputFile" => "Output.md",
+			"subFileDirectory" => "Subfiles",
+			"tag" => "§",
+			"alphabetical" => "true",
+			"status" => "all",
+			"override" => "false"
+		];
+
 		$config = null;
 		if(file_exists('.wlconfig') && $config == null)
 		{
 			$config = parse_ini_file('.wlconfig');
 		}
-		if($config != null)
+
+		if($getopts->get($key) != "empty") // If manually entered a different value than default.
 		{
-			if(array_key_exists($key, $config))
+			if($getopts->get('override') != "empty") // If override is set to true - arguments take precedence over configuration file.
 			{
-				return $config[$key];
+				return $getopts->get($key);
+			} else { // If override is set to false - configuration file takes precedence over arguments.
+				if($config != null)
+				{
+					if(array_key_exists($key, $config))
+					{
+						return $config[$key];
+					} else {
+						return $defaults[$key];
+					}
+				} else {
+					return $defaults[$key≠;
+				}
 			}
+			return $defaults[$key];
+		} else {
+			if($config != null)
+			{
+				if(array_key_exists($key, $config))
+				{
+
+					return $config[$key];
+				}
+			}
+			return $defaults[$key];
 		}
-		return $getopts->get($key);
 	}
 
 	public function getMainFile()
@@ -88,8 +125,5 @@ class Helper
 		return $tags;
 
 	}
-
-
-
 
 }

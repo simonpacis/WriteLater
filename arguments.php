@@ -60,6 +60,5 @@ $getopts->addOption('override')
 		->description('For any conflicts between command-line arguments and configuration file, the command-line arguments will take precedence if set to true. Defaults to "false".')
 		->defaultValue('empty');
 
-
 $getopts->parse();
 

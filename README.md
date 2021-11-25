@@ -79,43 +79,18 @@ The list action runs the prep action automatically.
 You want to run Write Later globally on your system?
 How to?
 
-Eventually I'll probably bundle it as a phar, but the project is not set up for that at the moment.
-So, I recommend you put the entire WriteLater directory in a script collection directory somewhere (e.g.
-Documents/Scripts/WriteLater), and create a file with the following contents (remember to replace with your path instead):
+Well, I try to bundle a so-called phar file as often as possible.
+Those are executable PHP archives.
+
+So, take the "write-later.phar" file you find in the "dist" directory and move it to a directory in your path, e.g.
+"/usr/local/bin".
+I recommend calling it "wl", so the command becomes:
 
 ```
-#!/usr/bin/env bash
-PHP=`which php`
-$PHP ~/Documents/Scripts/WriteLater/wl.php $@
+mv dist/write-later.phar /usr/local/bin/wl
 ```
 
-And then save it as 
-
-```
-wl
-```
-
-in the
-
-```
-/usr/local/bin
-```
-
-directory.
-
-Then run the command:
-
-```
-chmod +x /usr/local/bin/wl
-```
-
-And then you can run the command
-
-```
-wl
-```
-
-From anywhere on the system, to run Write Later.
+Then you can run "wl" from the terminal anywhere on your system to run Write Later!
 
 ## Configuration File
 If you have custom arguments that you want to run everytime in that directory, instead of using command-line arguments, you can create a file called

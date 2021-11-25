@@ -42,7 +42,7 @@ class Helper
 						return $defaults[$key];
 					}
 				} else {
-					return $defaults[$key];
+					return $getopts->get($key);
 				}
 			}
 			return $defaults[$key];

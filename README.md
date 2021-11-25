@@ -40,6 +40,19 @@ Both of the first two lines will not be included in your output document.
 
 ## Installation
 
+There are two ways to install Write Later.
+
+### Install globally as a binary
+If you want to use Write Later anywhere by just running the "wl" command, this is the right way for you.
+Simply run this oneliner in your terminal:
+
+```
+curl -LJO https://github.com/simonpacis/WriteLater/blob/main/dist/write-later.phar && mv write-later.phar /usr/local/bin/wl
+```
+
+And you're all set.
+Make sure PHP is installed prior to this.
+
 Download the directory, and run
 ```
 composer install

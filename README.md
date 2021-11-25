@@ -82,7 +82,7 @@ If you have custom arguments that you want to run everytime in that directory, i
 .wlconfig
 ```
 
-And use INI syntax to define those arguments.
+And use ini syntax to define those arguments.
 Here are contents of an example INI file:
 
 ```
@@ -90,6 +90,8 @@ action=replace
 insertion-tag=&
 output-file=Final.md
 ```
+
+
 
 Project is very new, documentation is bad.
 Will get better.

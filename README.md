@@ -61,6 +61,11 @@ composer install
 in the Terminal.
 Then run
 ```
+php wl.php
+```
+
+## Usage
+```
 php wl.php --help
 ```
 to figure out what arguments to pass, but generally only three things are needed:

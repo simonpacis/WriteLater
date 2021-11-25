@@ -61,7 +61,13 @@ class Helper
 
 	public function getMainFile()
 	{
-		$file = file_get_contents($this->get('mainFile'));
+		if(file_exists($this->get('mainFile')))
+		{
+			$file = file_get_contents($this->get('mainFile'));
+		} else {
+			echo "Main file \"" . $this->get('mainFile') . "\" not found. Exiting.\n";
+			die();
+		}
 		return $file;
 	}
 
@@ -85,6 +91,11 @@ class Helper
 			if($i == 0)
 			{
 				$last_index = $index;
+				if($index == false)
+				{
+					echo "No tags found in document. Exiting.\n";
+					die();
+				}
 			}
 
 			$last_find = $mainfile->between($tag_start, $tag_end, $last_index);

@@ -75,6 +75,16 @@ Will list all current replacement keys and their status as defined in their seco
 
 The list action runs the prep action automatically.
 
+### Install to path
+Eventually I'll probably bundle it as a phar, but the project is not set up for that at the moment.
+I recommend you put the entire directory in a script collection directory somewhere (e.g.
+Documents/Scripts/WriteLater), and create a file with the following contents:
+
+```
+#!/usr/bin/env php
+
+php ~/Documents/Scripts/WriteLater/wl.php $@
+
 ## Configuration File
 If you have custom arguments that you want to run everytime in that directory, instead of using command-line arguments, you can create a file called
 

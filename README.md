@@ -89,7 +89,17 @@ Documents/Scripts/WriteLater), and create a file with the following contents:
 php ~/Documents/Scripts/WriteLater/wl.php $@
 ```
 
-And then save it was wl in the /usr/local/bin directory.
+And then save it as 
+```
+wl
+```
+
+in the
+```
+/usr/local/bin
+```
+directory.
+
 Then run the command:
 
 ```

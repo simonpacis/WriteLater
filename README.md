@@ -81,7 +81,7 @@ How to?
 
 Eventually I'll probably bundle it as a phar, but the project is not set up for that at the moment.
 So, I recommend you put the entire WriteLater directory in a script collection directory somewhere (e.g.
-Documents/Scripts/WriteLater), and create a file with the following contents:
+Documents/Scripts/WriteLater), and create a file with the following contents (remember to replace with your path instead):
 
 ```
 #!/usr/bin/env bash

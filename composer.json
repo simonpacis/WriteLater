@@ -1,4 +1,7 @@
 {
+    "name": "simonpacis/write-later",
+    "description": "Parts of your text you're not ready to write yet? Write it Later!",
+    "type": "project",
     "require": {
         "fostam/getopts": "^1.2",
         "jc21/clitable": "^1.2",

@@ -65,13 +65,14 @@ php wl.php
 ```
 
 ## Usage
+Run
 ```
-php wl.php --help
+wl --help
 ```
 to figure out what arguments to pass, but generally only three things are needed:
 
 ```
-php wl.php --action replace
+wl --action replace
 ```
 
 Which will process the files and replace replacement keys with their corresponding Markdown files from the Subfiles directory.
@@ -79,13 +80,13 @@ The replace action runs the prep action automatically.
 
 
 ```
-php wl.php --action prep
+wl --action prep
 ```
 
 Which will create all the necessary Markdown files based on your replacement keys.
 
 ```
-php wl.php --action list 
+wl --action list 
 ```
 
 Will list all current replacement keys and their status as defined in their second line, as such:
@@ -93,23 +94,6 @@ Will list all current replacement keys and their status as defined in their seco
 <img width="588" alt="Screen Shot 2021-11-23 at 10 14 57 PM" src="https://user-images.githubusercontent.com/7118482/143184862-7e56fa80-aa39-4ce6-8975-8ea39296ca36.png">
 
 The list action runs the prep action automatically.
-
-### Install to path
-You want to run Write Later globally on your system?
-How to?
-
-Well, I try to bundle a so-called phar file as often as possible.
-Those are executable PHP archives.
-
-So, take the "write-later.phar" file you find in the "dist" directory and move it to a directory in your path, e.g.
-"/usr/local/bin".
-I recommend calling it "wl", so the command becomes:
-
-```
-mv dist/write-later.phar /usr/local/bin/wl
-```
-
-Then you can run "wl" from the terminal anywhere on your system to run Write Later!
 
 ## Configuration File
 If you have custom arguments that you want to run everytime in that directory, instead of using command-line arguments, you can create a file called

@@ -1,25 +1,28 @@
 <?php
 
-
-function performPrep($print = true)
+trait PrepTrait
 {
-	global $helper;
-	$results = $helper->parseFile();
 
-	if(!is_dir($helper->get('subFileDirectory')))
+	public function performPrep($print = true)
 	{
-		mkdir($helper->get('subFileDirectory'));
-	}
+		global $app;
+		$results = $app->parseFile();
 
-	foreach($results as $result)
-	{
-		if($result['file'] == "No")
+		if(!is_dir($app->get('subFileDirectory')))
 		{
-			file_put_contents($helper->get('subFileDirectory') . "/" . $result['name'] . ".md", "[//]: # (" . $result['name'] . ": " . $result['description'] . ")\n[//]: # (Status: Pending)");
+			mkdir($app->get('subFileDirectory'));
 		}
-		if($print)
+
+		foreach($results as $result)
 		{
-			echo "Created " . $result['name'] . ".md.\n";
+			if($result['file'] == "No")
+			{
+				file_put_contents($app->get('subFileDirectory') . "/" . $result['name'] . ".md", "[//]: # (" . $result['name'] . ": " . $result['description'] . ")\n[//]: # (Status: Pending)");
+			}
+			if($print)
+			{
+				echo "Created " . $result['name'] . ".md.\n";
+			}
 		}
 	}
 }

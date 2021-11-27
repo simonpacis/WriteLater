@@ -1,8 +1,11 @@
 <?php
 use Stringy\Stringy as S;
 
-class Helper
+class App 
 {
+	use ReplaceTrait;
+	use ListTrait;
+	use PrepTrait;
 
 	public $defaults;
 

@@ -12,28 +12,28 @@ use Stringy\Stringy as S;
  */
 
 require_once('arguments.php');
-require_once('helper.php');
-$helper = new Helper();
 require_once('prep.php');
 require_once('replace.php');
 require_once('list.php');
+require_once('app.php');
+$app = new App();
 
 if($getopts->get('save') == 'true')
 {
-	$helper->argToConfig();
+	$app->argToConfig();
 }
 
-switch($helper->get('action'))
+switch($app->get('action'))
 {
 case 'replace':
-	performReplacement();
+	$app->performReplacement();
 	break;
 case 'prep':
-	performPrep();
+	$app->performPrep();
 	break;
 case 'list':
-	performList();
+	$app->performList();
 	break;
 default:
-	performReplacement();
+	$app->performReplacement();
 }

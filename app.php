@@ -16,7 +16,7 @@ class App
 			"mainFile" => "Main.md",
 			"outputFile" => "Output.md",
 			"subFileDirectory" => "Subfiles",
-			"tag" => "§",
+			"tag" => "$",
 			"alphabetical" => "true",
 			"status" => "all",
 			"override" => "false",

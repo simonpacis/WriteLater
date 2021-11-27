@@ -139,8 +139,6 @@ class App
 
 			}
 
-
-
 			array_push($tags, ['name' => $explosion[0], 'description' => $desc, "file" => $file, 'status' => $status]);
 		}
 

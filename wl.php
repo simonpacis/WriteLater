@@ -35,5 +35,5 @@ case 'list':
 	$app->performList();
 	break;
 default:
-	$app->performReplacement();
+	echo "Action " . $app->get('action') . " not found. Exiting.\n";
 }

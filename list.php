@@ -3,17 +3,41 @@ use jc21\CliTable;
 
 trait ListTrait
 {
+
+	public function traverseResultList($results, $parent = null)
+	{
+		foreach($results as $result)
+		{
+			if(count($result['tags']) > 0)
+			{
+				$this->traverseResultList($result['tags'], $result);
+			}
+
+			$parent_string = "";
+			if($parent != null)
+			{
+				$parent_string = $parent['name'] . "/";
+			}
+			
+			array_push($this->returnarr, ['name' => $parent_string . $result['name'], 'description' => $result['description'], 'status' => $result['status']]);
+
+		}
+
+		return $this->returnarr;
+
+	}
+
 	public function performList()
 	{
 		global $app;
-		$app->performPrep(false);
-		$results = $app->parseFile();
+		$results = $app->parse();
 		$table = new CliTable;
 		$table->setTableColor('blue');
 		$table->setHeaderColor('cyan');
 		$table->addField('Tag', 'name');
 		$table->addField('Description', 'description');
 		$table->addField('Status', 'status');
+		$results = $this->traverseResultList($results);
 		if($app->get('alphabetical') == "true")
 		{
 			usort($results, function($a, $b){ return strcmp($a["name"], $b["name"]); });
@@ -33,6 +57,7 @@ trait ListTrait
 
 			}
 		}
+
 		$table->injectData($results);
 		$table->display();
 

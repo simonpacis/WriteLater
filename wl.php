@@ -12,7 +12,6 @@ use Stringy\Stringy as S;
  */
 
 require_once('arguments.php');
-require_once('prep.php');
 require_once('replace.php');
 require_once('list.php');
 require_once('app.php');
@@ -30,6 +29,10 @@ case 'replace':
 	break;
 case 'list':
 	$app->performList();
+	break;
+case 'prep':
+	$app->parse();
+	echo "Files succesfully created.\n";
 	break;
 default:
 	echo "Action " . $app->get('action') . " not found. Exiting.\n";

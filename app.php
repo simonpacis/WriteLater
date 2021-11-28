@@ -5,9 +5,11 @@ class App
 {
 	use ReplaceTrait;
 	use ListTrait;
-	use PrepTrait;
 
 	public $defaults;
+	public $returnarr;
+	public $maintext;
+	public $maintext_raw;
 
 	public function __construct()
 	{
@@ -20,8 +22,13 @@ class App
 			"alphabetical" => "true",
 			"status" => "all",
 			"override" => "false",
-			'save' => 'false'
+			'save' => 'false',
+			'defaultStatus' => 'Pending'
 		];
+
+		$this->returnarr = [];
+		$this->maintext = "";
+		$this->maintext_raw = "";
 
 	}
 
@@ -124,7 +131,8 @@ class App
 
 		if(!file_exists($path))
 		{
-			file_put_contents($path, "[//]: # (" . $pretag['name'] . ": " . $pretag['description'] . ")\n[//]: # (Status: Pending)");
+			$default_status = ucfirst($this->get('defaultStatus'));
+			file_put_contents($path, "[//]: # (" . $pretag['name'] . ": " . $pretag['description'] . ")\n[//]: # (Status: ".$default_status.")");
 		}
 		return true;
 	}

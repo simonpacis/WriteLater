@@ -205,7 +205,17 @@ class App
 			{
 				$rec_tags = $return;
 			}
-			array_push($tags, ['name' => $name, 'description' => $desc, "file" => $file, 'status' => $status, 'path' => $pretag['path'], "tags" => $rec_tags]);
+
+			$file = explode("\n", $read);
+			unset($file[0]);
+			$file = array_values($file);
+			unset($file[0]);
+			$file = array_values($file);
+			$read = join("\n", $file);
+
+			$wordcount = str_word_count($read);
+
+			array_push($tags, ['name' => $name, 'description' => $desc, "file" => $file, 'status' => $status, 'path' => $pretag['path'], "tags" => $rec_tags, 'wordcount' => $wordcount]);
 		}
 
 		return $tags;

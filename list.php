@@ -3,7 +3,7 @@ use jc21\CliTable;
 
 trait ListTrait
 {
-
+	
 	public function traverseResultList($results, $parent = null)
 	{
 		foreach($results as $result)
@@ -18,8 +18,8 @@ trait ListTrait
 			{
 				$parent_string = $parent['name'] . "/";
 			}
-			
-			array_push($this->returnarr, ['name' => $parent_string . $result['name'], 'description' => $result['description'], 'status' => $result['status']]);
+
+			array_push($this->returnarr, ['name' => $parent_string . $result['name'], 'description' => $result['description'], 'status' => $result['status'], "wc" => $result['wordcount']]);
 
 		}
 
@@ -37,6 +37,7 @@ trait ListTrait
 		$table->addField('Tag', 'name');
 		$table->addField('Description', 'description');
 		$table->addField('Status', 'status');
+		$table->addField('Word count', 'wc');
 		$results = $this->traverseResultList($results);
 		if($app->get('alphabetical') == "true")
 		{

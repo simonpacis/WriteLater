@@ -137,7 +137,7 @@ Normally, the command-line entered arguments take precedence over all configurat
 --override false 
 ```
 
-Which would mean that entered command-line arguments that conflict with the configuration file would take precedence.
+Which would mean that entered command-line arguments that conflict with the configuration file would not take precedence.
 
 Project is very new, documentation is bad.
 Will get better.

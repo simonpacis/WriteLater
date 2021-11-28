@@ -44,10 +44,10 @@ With the recent commit, Write Later is now recursive.
 That means that tags found in your Subfiles will also work flawlessly.
 Here's an example:
 
-Main.md has the tag [$Level1].
-This creates Subfiles/Level1.md.
-Level1.md has the tag [$Level2].
-This creates Subfiles/Level1/Level2.md.
+```Main.md``` has the tag ```[$Level1]```.
+This creates ```Subfiles/Level1.md```.
+```Level1.md``` has the tag ```[$Level2]```.
+This creates ```Subfiles/Level1/Level2.md```.
 And so on for how ever long you need it to.
 
 ## Installation

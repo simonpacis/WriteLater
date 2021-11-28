@@ -105,6 +105,9 @@ wl --action prep
 Will create all Markdown files based on the tags in your documents.
 Replace and list automatically runs this before doing their thing.
 
+### Running in a subdirectory
+If you run the ```wl``` command in one of your subdirectories, Write Later will automatically go up levels until it reaches the main-file, and will then process this file.
+
 ## Configuration File
 If you have custom arguments that you want to run everytime in that directory, instead of using command-line arguments, you can create a file called
 

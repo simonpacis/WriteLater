@@ -56,7 +56,7 @@ $getopts->addOption('override')
 		->short('r')
 		->long('override')
 		->argument('override')
-		->description('For any conflicts between command-line arguments and configuration file, the command-line arguments will take precedence if set to true. Defaults to "false".')
+		->description('For any conflicts between command-line arguments and configuration file, the command-line arguments will take precedence if set to true. Defaults to "true".')
 		->defaultValue('empty');
 
 $getopts->addOption('save')

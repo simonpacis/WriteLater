@@ -59,7 +59,7 @@ If you want to use Write Later anywhere by just running the "wl" command, this i
 Simply run this oneliner in your terminal:
 
 ```
-curl -LJO https://github.com/simonpacis/WriteLater/blob/main/dist/write-later.phar && mv write-later.phar /usr/local/bin/wl
+curl -LJO https://github.com/simonpacis/WriteLater/blob/main/dist/write-later.phar && chmod +x write-later.phar && mv write-later.phar /usr/local/bin/wl
 ```
 
 And you're all set.

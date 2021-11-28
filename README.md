@@ -48,7 +48,7 @@ Main.md has the tag [$Level1].
 This creates Subfiles/Level1.md.
 Level1.md has the tag [$Level2].
 This creates Subfiles/Level1/Level2.md.
-And so on for how ever long you need.
+And so on for how ever long you need it to.
 
 ## Installation
 

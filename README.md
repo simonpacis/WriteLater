@@ -95,7 +95,7 @@ wl --action list
 
 Will list all current replacement keys and their status as defined in their second line, as such:
 
-<img width="588" alt="Screen Shot 2021-11-23 at 10 14 57 PM" src="https://user-images.githubusercontent.com/7118482/143184862-7e56fa80-aa39-4ce6-8975-8ea39296ca36.png">
+<img width="478" alt="Screen Shot 2021-11-27 at 11 40 59 PM" src="https://user-images.githubusercontent.com/7118482/143734039-9c0065cd-d97f-4292-b21d-d207fb59675a.png">
 
 
 ```

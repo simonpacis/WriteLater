@@ -41,7 +41,7 @@ Both of the first two lines will not be included in your output document.
 ## Recursion
 
 Write Later is recursive.
-That means that tags found in your Subfiles will also work flawlessly.
+This means that tags found in your Subfiles will also work flawlessly.
 Here's an example:
 
 ```Main.md``` has the tag ```[$Level1]```.

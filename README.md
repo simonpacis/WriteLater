@@ -40,7 +40,7 @@ Both of the first two lines will not be included in your output document.
 
 ## Recursion
 
-With the recent commit, Write Later is now recursive.
+Write Later is recursive.
 That means that tags found in your Subfiles will also work flawlessly.
 Here's an example:
 
@@ -54,7 +54,7 @@ And so on for how ever long you need it to.
 
 There are two ways to install Write Later.
 
-### Install globally as a binary
+### Install globally 
 If you want to use Write Later anywhere by just running the "wl" command, this is the right way for you.
 Simply run this oneliner in your terminal:
 

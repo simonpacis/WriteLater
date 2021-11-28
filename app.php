@@ -103,6 +103,11 @@ class App
 
 	public function parse()
 	{
+		while(file_exists('.wldir'))
+		{
+			echo "This seems to be a a subfile directory. Going up a level and trying again.\n";
+			chdir('../');
+		}
 		return $this->parseFile($this->get('mainFile'));
 	}
 
@@ -122,6 +127,7 @@ class App
 		{
 			mkdir($path, 0777, true);
 		}
+		file_put_contents($path . "/" . ".wldir", "This is a Write Later subdirectory.");
 		return true;
 	}
 

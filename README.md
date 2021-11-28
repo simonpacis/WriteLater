@@ -131,10 +131,10 @@ Enter your desired arguments in the commandline, and add the
 parameter, and Write Later will automaticall generate the .wlconfig file for you, and enter your chosen arguments.
 
 ### Conflict precedence
-Normally, the configuration file takes precedence over all command-line entered arguments, but if you want to reverse that, simply use the argument
+Normally, the command-line entered arguments take precedence over all configuration arguments, but if you want to reverse that, simply use the argument
 
 ```
---override true
+--override false 
 ```
 
 Which would mean that entered command-line arguments that conflict with the configuration file would take precedence.

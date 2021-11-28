@@ -47,7 +47,7 @@ class App
 
 		if($getopts->get($key) != "empty") // If manually entered a different value than default.
 		{
-			if($getopts->get('override') != "empty") // If override is set to true - arguments take precedence over configuration file.
+			if($getopts->get('override') != "false") // If override is set to true - arguments take precedence over configuration file.
 			{
 				return $getopts->get($key);
 			} else { // If override is set to false - configuration file takes precedence over arguments.

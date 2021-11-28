@@ -7,9 +7,8 @@ $getopts->addOption('action')
 		->short('a')
 		->long('action')
 		->argument('action')
-		->description('The action you want Write Later to perform. Options include: replace:|prep|list. Defaults to "replace".')
+		->description('The action you want Write Later to perform. Options include: replace|list. Defaults to "replace".')
 		->defaultValue('empty');
-//		->defaultValue('parse');
 
 $getopts->addOption('mainFile')
 		->short('m')

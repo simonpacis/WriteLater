@@ -28,9 +28,6 @@ switch($app->get('action'))
 case 'replace':
 	$app->performReplacement();
 	break;
-case 'prep':
-	$app->performPrep();
-	break;
 case 'list':
 	$app->performList();
 	break;

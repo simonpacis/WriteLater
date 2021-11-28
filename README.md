@@ -76,14 +76,6 @@ wl --action replace
 ```
 
 Which will process the files and replace replacement keys with their corresponding Markdown files from the Subfiles directory.
-The replace action runs the prep action automatically.
-
-
-```
-wl --action prep
-```
-
-Which will create all the necessary Markdown files based on your replacement keys.
 
 ```
 wl --action list 
@@ -92,8 +84,6 @@ wl --action list
 Will list all current replacement keys and their status as defined in their second line, as such:
 
 <img width="588" alt="Screen Shot 2021-11-23 at 10 14 57 PM" src="https://user-images.githubusercontent.com/7118482/143184862-7e56fa80-aa39-4ce6-8975-8ea39296ca36.png">
-
-The list action runs the prep action automatically.
 
 ## Configuration File
 If you have custom arguments that you want to run everytime in that directory, instead of using command-line arguments, you can create a file called

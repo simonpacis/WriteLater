@@ -3,7 +3,7 @@ use jc21\CliTable;
 
 trait ListTrait
 {
-	
+
 	public function traverseResultList($results, $parent = null)
 	{
 		foreach($results as $result)
@@ -43,6 +43,12 @@ trait ListTrait
 		{
 			usort($results, function($a, $b){ return strcmp($a["name"], $b["name"]); });
 		}
+		$totalcount = 0;
+		foreach($results as $result)
+		{
+			$totalcount = $totalcount + $result['wc'];
+
+		}
 		if($app->get('status') != "all")
 		{
 			$status = $app->get('status');
@@ -61,6 +67,10 @@ trait ListTrait
 
 		$table->injectData($results);
 		$table->display();
+
+		echo "\033[0mTotal word count is: " . $totalcount . ".\e[0m\n";
+
+
 
 
 

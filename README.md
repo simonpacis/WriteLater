@@ -38,6 +38,18 @@ will be replaced with the contents of Background.md.
 
 Both of the first two lines will not be included in your output document.
 
+## Recursion
+
+With the recent commit, Write Later is now recursive.
+That means that tags found in your Subfiles will also work flawlessly.
+Here's an example:
+
+Main.md has the tag [$Level1].
+This creates Subfiles/Level1.md.
+Level1.md has the tag [$Level2].
+This creates Subfiles/Level1/Level2.md.
+And so on for how ever long you need.
+
 ## Installation
 
 There are two ways to install Write Later.

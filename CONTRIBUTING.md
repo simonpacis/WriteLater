@@ -1,0 +1,1 @@
+Contributing is greatly appreciated, and pull requests will be reviewed and merged ASAP. Please don't hestitate to reach out to me here or at rials_just0w@icloud.com if you have any questions or concerns.

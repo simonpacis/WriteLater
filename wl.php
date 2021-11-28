@@ -12,28 +12,28 @@ use Stringy\Stringy as S;
  */
 
 require_once('arguments.php');
-require_once('helper.php');
-$helper = new Helper();
-require_once('prep.php');
 require_once('replace.php');
 require_once('list.php');
+require_once('app.php');
+$app = new App();
 
 if($getopts->get('save') == 'true')
 {
-	$helper->argToConfig();
+	$app->argToConfig();
 }
 
-switch($helper->get('action'))
+switch($app->get('action'))
 {
 case 'replace':
-	performReplacement();
-	break;
-case 'prep':
-	performPrep();
+	$app->performReplacement();
 	break;
 case 'list':
-	performList();
+	$app->performList();
+	break;
+case 'prep':
+	$app->parse();
+	echo "Files succesfully created.\n";
 	break;
 default:
-	performReplacement();
+	echo "Action " . $app->get('action') . " not found. Exiting.\n";
 }

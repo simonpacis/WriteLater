@@ -5,7 +5,7 @@ While writing I had the thought that sometimes there are parts of my text that I
 At the same time i use Pandoc for my citations, which use the syntax [@Key Pages].
 
 So, I started work on Write Later.
-In your Markdown document, when there's something you want to Write Later, simply insert the replacement key [§Key Description (optional)].
+In your Markdown document, when there's something you want to Write Later, simply insert the replacement key [$Key Description (optional)].
 
 When run through Write Later it creates a Markdown file for each replacement key in a directory.
 
@@ -16,7 +16,7 @@ So, here's an example:
 
 Here's some text.
 
-[§Background Background info for this part would be nice.]
+[$Background Background info for this part would be nice.]
 
 ```
 
@@ -31,7 +31,7 @@ This creates a file "Background.md" in the directory "Subfiles", with the follow
 Underneath the second line you can type whatever you want to, and when run through Write Later with the replace action 
 
 ```
-[§Background Background info for this part would be nice.]
+[$Background Background info for this part would be nice.]
 ```
 
 will be replaced with the contents of Background.md.
@@ -76,14 +76,6 @@ wl --action replace
 ```
 
 Which will process the files and replace replacement keys with their corresponding Markdown files from the Subfiles directory.
-The replace action runs the prep action automatically.
-
-
-```
-wl --action prep
-```
-
-Which will create all the necessary Markdown files based on your replacement keys.
 
 ```
 wl --action list 
@@ -92,8 +84,6 @@ wl --action list
 Will list all current replacement keys and their status as defined in their second line, as such:
 
 <img width="588" alt="Screen Shot 2021-11-23 at 10 14 57 PM" src="https://user-images.githubusercontent.com/7118482/143184862-7e56fa80-aa39-4ce6-8975-8ea39296ca36.png">
-
-The list action runs the prep action automatically.
 
 ## Configuration File
 If you have custom arguments that you want to run everytime in that directory, instead of using command-line arguments, you can create a file called

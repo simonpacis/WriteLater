@@ -1,24 +1,34 @@
 <?php
 use Stringy\Stringy as S;
 
-class Helper
+class App 
 {
+	use ReplaceTrait;
+	use ListTrait;
 
 	public $defaults;
+	public $returnarr;
+	public $maintext;
+	public $maintext_raw;
 
 	public function __construct()
 	{
 		$this->defaults = [
-			"action" => "parse",
+			"action" => "replace",
 			"mainFile" => "Main.md",
 			"outputFile" => "Output.md",
 			"subFileDirectory" => "Subfiles",
-			"tag" => "§",
+			"tag" => "$",
 			"alphabetical" => "true",
 			"status" => "all",
 			"override" => "false",
-			'save' => 'false'
+			'save' => 'false',
+			'defaultStatus' => 'Pending'
 		];
+
+		$this->returnarr = [];
+		$this->maintext = "";
+		$this->maintext_raw = "";
 
 	}
 
@@ -79,12 +89,61 @@ class Helper
 		return $file;
 	}
 
-	public function parseFile()
+	public function getFile($filename)
+	{
+		if(file_exists($filename))
+		{
+			$file = file_get_contents($filename);
+		} else {
+			echo "File \"" . $filename . "\" not found. Exiting.\n";
+			die();
+		}
+		return $file;
+	}
+
+	public function parse()
+	{
+		return $this->parseFile($this->get('mainFile'));
+	}
+
+	public function getPath($file)
+	{
+		if($file == $this->get('mainFile'))
+		{
+			return $this->get('subFileDirectory') . "/";
+		}
+		$explode = explode(".md", $file);
+		$path = join("/", array_slice($explode, 0, -1)) . "/";
+		return $path;
+	}
+
+	function createPath($path) {
+		if (is_dir($path)) return true;
+		$prev_path = substr($path, 0, strrpos($path, '/', -2) + 1 );
+		$return = $this->createPath($prev_path);
+		return ($return && is_writable($prev_path)) ? mkdir($path) : false;
+	}
+
+	public function makeFile($path, $pretag)
+	{
+		$dir_path = join("/", array_slice(explode("/", $path), 0, -1));
+		$this->createPath($dir_path);
+
+		if(!file_exists($path))
+		{
+			$default_status = ucfirst($this->get('defaultStatus'));
+			file_put_contents($path, "[//]: # (" . $pretag['name'] . ": " . $pretag['description'] . ")\n[//]: # (Status: ".$default_status.")");
+		}
+		return true;
+	}
+
+	public function parseFile($file)
 	{
 		$tag = $this->get('tag');
 		$tag_start = '['.$tag;
 		$tag_end = ']';
-		$mainfile = S::create($this->getMainFile());
+		$mainfile = S::create($this->getFile($file));
+		$path = $this->getPath($file);
 		$pretags = [];
 		$tags = [];
 		$descriptions = [];
@@ -101,8 +160,7 @@ class Helper
 				$last_index = $index;
 				if($index == false)
 				{
-					echo "No tags found in document. Exiting.\n";
-					die();
+					return;
 				}
 			}
 
@@ -113,32 +171,40 @@ class Helper
 				$last_find = "none";
 			} else {
 				$last_index = $last_index + $last_find->length();
-				array_push($pretags, $last_find);
+				array_push($pretags, ['tag' => $last_find, 'path' => $path]);
 			}
 			$i++;
 		}
 
-		foreach($pretags as $tag)
+
+		foreach($pretags as $pretag)
 		{
+			$tag = $pretag['tag'];
 			$explosion = explode(" ", $tag);
+			$name = $explosion[0];
+			$pretag['name'] = $name;
 			$desc = "No description.";
+			$rec_tags = [];
 			if(array_key_exists(1, $explosion))
 			{
 				$desc = join(" ", array_slice($explosion, 1));
 			}
+			$pretag['description'] = $desc;
 			$file = "No";
 			$status = "Not created";
-			if(file_exists($this->get('subFileDirectory') . "/". $explosion[0] . ".md"))
+			$newpath = $path . $name . ".md";
+			$this->makeFile($newpath, $pretag);
+			$file = "Yes";
+			$read = file_get_contents($pretag['path'] . $name . ".md");
+			$status = explode(")", explode(": ", explode("\n", $read)[1])[2])[0];
+
+			$newpath = $path . $name . ".md";
+			$return = $this->parseFile($newpath);
+			if($return != null)
 			{
-				$file = "Yes";
-				$read = file_get_contents($this->get('subFileDirectory') . "/" . $explosion[0] . ".md");
-				$status = explode(")", explode(": ", explode("\n", $read)[1])[2])[0];
-
+				$rec_tags = $return;
 			}
-
-
-
-			array_push($tags, ['name' => $explosion[0], 'description' => $desc, "file" => $file, 'status' => $status]);
+			array_push($tags, ['name' => $name, 'description' => $desc, "file" => $file, 'status' => $status, 'path' => $pretag['path'], "tags" => $rec_tags]);
 		}
 
 		return $tags;

@@ -7,9 +7,8 @@ $getopts->addOption('action')
 		->short('a')
 		->long('action')
 		->argument('action')
-		->description('The action you want Write Later to perform. Options include: replace:|prep|list. Defaults to "replace".')
+		->description('The action you want Write Later to perform. Options include: replace|list. Defaults to "replace".')
 		->defaultValue('empty');
-//		->defaultValue('parse');
 
 $getopts->addOption('mainFile')
 		->short('m')
@@ -65,6 +64,13 @@ $getopts->addOption('save')
 		->long('save')
 		->argument('save')
 		->description('When set to true, saves the entered command line arguments as a .wlconfig file, so you can simply run "wl" next time to run Write Later with the same arguments. Will override existing .wlconfig. Defaults to "false".')
+		->defaultValue('empty');
+
+$getopts->addOption('defaultStatus')
+		->short('d')
+		->long('default-status')
+		->argument('default-status')
+		->description('The default status of newly created files. Defaults to "Pending". Will automatically uppercase first letter.')
 		->defaultValue('empty');
 
 $getopts->parse();

@@ -85,6 +85,13 @@ Will list all current replacement keys and their status as defined in their seco
 
 <img width="588" alt="Screen Shot 2021-11-23 at 10 14 57 PM" src="https://user-images.githubusercontent.com/7118482/143184862-7e56fa80-aa39-4ce6-8975-8ea39296ca36.png">
 
+
+```
+wl --action prep
+```
+
+Will create all Markdown files based on the tags in your documents.
+
 ## Configuration File
 If you have custom arguments that you want to run everytime in that directory, instead of using command-line arguments, you can create a file called
 

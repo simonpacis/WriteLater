@@ -145,3 +145,6 @@ Which would mean that entered command-line arguments that conflict with the conf
 # Write Later in Vim
 I write exclusively in Vim, so I wrote up a little script which opens a window in Vim with the output of wl --action list.
 Just press Leader + p to open the window, Leader + p to close it again.
+
+php phar-composer.phar build .
+dist

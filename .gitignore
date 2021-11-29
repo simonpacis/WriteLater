@@ -10,3 +10,4 @@ composer.lock
 .wlconfig
 phar-composer.phar
 NOTES.md
+*.swo

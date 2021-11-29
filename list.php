@@ -80,7 +80,7 @@ trait ListTrait
 			$tableBuilder = new \MaddHatter\MarkdownTable\Builder();
 			$tableBuilder
 				->headers(['Tag', 'Description', 'Status', 'Word count']) //headers
-				->align(['C','C','C', 'C']) // set column alignment
+				->align(['L','L','L', 'L']) // set column alignment
 				->rows($prepped_results);
 
 			// display the result

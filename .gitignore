@@ -12,3 +12,5 @@ phar-composer.phar
 NOTES.md
 *.swo
 Prepush
+.wlmain
+.wldir

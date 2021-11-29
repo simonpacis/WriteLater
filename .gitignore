@@ -11,3 +11,4 @@ composer.lock
 phar-composer.phar
 NOTES.md
 *.swo
+Prepush

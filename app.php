@@ -23,7 +23,8 @@ class App
 			"status" => "all",
 			"override" => "false",
 			'save' => 'false',
-			'defaultStatus' => 'Pending'
+			'defaultStatus' => 'Pending',
+			'tableStyle' => 'pretty'
 		];
 
 		$this->returnarr = [];
@@ -107,6 +108,10 @@ class App
 		{
 			echo "This seems to be a a subfile directory. Going up a level and trying again.\n";
 			chdir('../');
+		}
+		if(!file_exists('.wlmain'))
+		{
+			file_put_contents('.wlmain', 'This is the main Write Later directory.');
 		}
 		return $this->parseFile($this->get('mainFile'));
 	}

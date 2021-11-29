@@ -31,23 +31,10 @@ trait ListTrait
 	{
 		global $app;
 		$results = $app->parse();
-		$table = new CliTable;
-		$table->setTableColor('blue');
-		$table->setHeaderColor('cyan');
-		$table->addField('Tag', 'name');
-		$table->addField('Description', 'description');
-		$table->addField('Status', 'status');
-		$table->addField('Word count', 'wc');
 		$results = $this->traverseResultList($results);
 		if($app->get('alphabetical') == "true")
 		{
 			usort($results, function($a, $b){ return strcmp($a["name"], $b["name"]); });
-		}
-		$totalcount = 0;
-		foreach($results as $result)
-		{
-			$totalcount = $totalcount + $result['wc'];
-
 		}
 		if($app->get('status') != "all")
 		{
@@ -64,11 +51,45 @@ trait ListTrait
 
 			}
 		}
+		$totalcount = 0;
+		foreach($results as $result)
+		{
+			$totalcount = $totalcount + $result['wc'];
 
-		$table->injectData($results);
-		$table->display();
+		}
+		if($app->get('tableStyle') == "pretty")
+		{
+			$table = new CliTable;
+			$table->setTableColor('blue');
+			$table->setHeaderColor('cyan');
+			$table->addField('Tag', 'name');
+			$table->addField('Description', 'description');
+			$table->addField('Status', 'status');
+			$table->addField('Word count', 'wc');
 
+			$table->injectData($results);
+			$table->display();
 		echo "\033[0mTotal word count is: " . $totalcount . ".\e[0m\n";
+		}else{
+			echo "\n";
+			$prepped_results = [];
+			foreach($results as $key => $result)
+			{
+				array_push($prepped_results, [$result['name'], $result['description'], $result['status'], $result['wc']]);
+			}
+			$tableBuilder = new \MaddHatter\MarkdownTable\Builder();
+			$tableBuilder
+				->headers(['Tag', 'Description', 'Status', 'Word count']) //headers
+				->align(['C','C','C', 'C']) // set column alignment
+				->rows($prepped_results);
+
+			// display the result
+			echo $tableBuilder->render();
+			echo "\n";
+		echo "Total word count is: " . $totalcount . ".";
+
+		}
+
 
 
 

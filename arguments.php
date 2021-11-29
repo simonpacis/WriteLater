@@ -52,6 +52,13 @@ $getopts->addOption('status')
 		->description('Only relevant for the list action. Limits the returned tags for the table by the entered status. Optional. Example: "pending" would return all tags with the Pending status.')
 		->defaultValue('empty');
 
+$getopts->addOption('tableStyle')
+		->short('y')
+		->long('table-style')
+		->argument('table-style')
+		->description('The output styling of the table. Acceptable options are: raw|pretty. Defaults to "pretty".')
+		->defaultValue('empty');
+
 $getopts->addOption('override')
 		->short('r')
 		->long('override')

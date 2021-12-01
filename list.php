@@ -57,6 +57,11 @@ trait ListTrait
 			$totalcount = $totalcount + $result['wc'];
 
 		}
+
+
+		$mainfilecount = str_word_count($app->getFile($app->get('mainFile')));
+		$totalcount = $totalcount + $mainfilecount;
+		
 		if($app->get('tableStyle') == "pretty")
 		{
 			$table = new CliTable;
@@ -69,7 +74,10 @@ trait ListTrait
 
 			$table->injectData($results);
 			$table->display();
-		echo "\033[0mTotal word count is: " . $totalcount . ".\e[0m\n";
+			echo "\033[0m";
+			
+			echo "Main file word count is: " . $mainfilecount . ".\n";
+echo"Total word count is: " . $totalcount . ".\e[0m\n";
 		}else{
 			echo "\n";
 			$prepped_results = [];
@@ -86,6 +94,7 @@ trait ListTrait
 			// display the result
 			echo $tableBuilder->render();
 			echo "\n";
+			echo "Main file word count is: " . $mainfilecount . ".\n";
 		echo "Total word count is: " . $totalcount . ".";
 
 		}

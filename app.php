@@ -24,7 +24,7 @@ class App
 			"override" => "false",
 			'save' => 'false',
 			'defaultStatus' => 'Pending',
-			'tableStyle' => 'pretty'
+			'tableStyle' => 'pretty',
 			'defaultDocMode' => 'document'
 		];
 

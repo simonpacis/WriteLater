@@ -20,6 +20,7 @@ trait ReplaceTrait
 
 			$index = strpos($string_raw, $tag_start . $tag['name']);
 			$end_index = strpos($string_raw, $tag_end, $index);
+			$remove_newlines = false;
 
 			if(count($tag['tags']) > 0)
 			{
@@ -28,8 +29,19 @@ trait ReplaceTrait
 				$string_raw = str_replace($substr, $file, $string_raw);
 
 				$replacement = $this->traverseResultReplace($tag['tags'], $path);
-
 				$file = explode("\n", $replacement);
+				
+				if(array_key_exists(2, $file))
+				{
+					if(substr($file[2], 0, 4) == "[//]")
+					{
+						$mode = explode(")", explode(": ", $file[2])[2])[0];
+						if(strtolower($mode) == "snippet")
+						{
+							$remove_newlines = true;
+						}
+					}
+				}
 				unset($file[0]);
 				$file = array_values($file);
 				unset($file[0]);
@@ -39,11 +51,26 @@ trait ReplaceTrait
 				$file = join("\n", $file);
 
 				$substr = substr($string_raw, $index, ($end_index - ($index-1)));
+				if($remove_newlines)
+				{
+					$substr = str_replace(["\n", "\r"], $substr);
+				}
 				$string_raw = str_replace($substr, $file, $string_raw);
 
 			} else {
 				$file = file_get_contents($tag['path'] . $tag['name'] . ".md");
 				$file = explode("\n", $file);
+				if(array_key_exists(2, $file))
+				{
+					if(substr($file[2], 0, 4) == "[//]")
+					{
+						$mode = explode(")", explode(": ", $file[2])[2])[0];
+						if(strtolower($mode) == "snippet")
+						{
+							$remove_newlines = true;
+						}
+					}
+				}
 				unset($file[0]);
 				$file = array_values($file);
 				unset($file[0]);
@@ -52,9 +79,11 @@ trait ReplaceTrait
 				$file = array_values($file);
 				$file = join("\n", $file);
 				$substr = substr($string_raw, $index, ($end_index - ($index-1)));
-				$mode = explode(")", explode(": ", explode("\n", $read)[2])[2])[0];
-				echo $mode;
-				die();
+
+				if($remove_newlines)
+				{
+					$substr = str_replace(["\n", "\r"], $substr);
+				}
 
 				$string_raw = str_replace($substr, $file, $string_raw);
 			}

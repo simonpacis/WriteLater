@@ -53,7 +53,7 @@ trait ReplaceTrait
 				$substr = substr($string_raw, $index, ($end_index - ($index-1)));
 				if($remove_newlines)
 				{
-					$substr = str_replace(["\n", "\r"], '', $substr);
+					$file = str_replace(["\n", "\r"], '', $file);
 				}
 				$string_raw = str_replace($substr, $file, $string_raw);
 
@@ -82,7 +82,7 @@ trait ReplaceTrait
 
 				if($remove_newlines)
 				{
-					$substr = str_replace(["\n", "\r"], '', $substr);
+					$file = str_replace(["\n", "\r"], '', $file);
 				}
 
 				$string_raw = str_replace($substr, $file, $string_raw);

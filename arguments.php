@@ -80,5 +80,12 @@ $getopts->addOption('defaultStatus')
 		->description('The default status of newly created files. Defaults to "Pending". Will automatically uppercase first letter.')
 		->defaultValue('empty');
 
+$getopts->addOption('defaultDocMode')
+		->short('c')
+		->long('default-doc-mode')
+		->argument('default-doc-mode')
+		->description('The default inclusion mode for the document. If set to snippet, no newline will be added before or after the first line of the document. This is useful for things such as names or eye-color etc. Acceptable options are: document|snippet. Defaults to "document".')
+		->defaultValue('empty');
+
 $getopts->parse();
 

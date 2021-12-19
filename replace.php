@@ -34,6 +34,8 @@ trait ReplaceTrait
 				$file = array_values($file);
 				unset($file[0]);
 				$file = array_values($file);
+				unset($file[0]);
+				$file = array_values($file);
 				$file = join("\n", $file);
 
 				$substr = substr($string_raw, $index, ($end_index - ($index-1)));
@@ -46,8 +48,14 @@ trait ReplaceTrait
 				$file = array_values($file);
 				unset($file[0]);
 				$file = array_values($file);
+				unset($file[0]);
+				$file = array_values($file);
 				$file = join("\n", $file);
 				$substr = substr($string_raw, $index, ($end_index - ($index-1)));
+				$mode = explode(")", explode(": ", explode("\n", $read)[2])[2])[0];
+				echo $mode;
+				die();
+
 				$string_raw = str_replace($substr, $file, $string_raw);
 			}
 

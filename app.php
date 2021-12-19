@@ -25,6 +25,7 @@ class App
 			'save' => 'false',
 			'defaultStatus' => 'Pending',
 			'tableStyle' => 'pretty'
+			'defaultDocMode' => 'document'
 		];
 
 		$this->returnarr = [];
@@ -144,7 +145,8 @@ class App
 		if(!file_exists($path))
 		{
 			$default_status = ucfirst($this->get('defaultStatus'));
-			file_put_contents($path, "[//]: # (" . $pretag['name'] . ": " . $pretag['description'] . ")\n[//]: # (Status: ".$default_status.")");
+			$default_document_mode = ucfirst($this->get('defaultDocMode'));
+			file_put_contents($path, "[//]: # (" . $pretag['name'] . ": " . $pretag['description'] . ")\n[//]: # (Status: ".$default_status.")\n[//]: # (Mode: ".$default_document_mode.")");
 		}
 		return true;
 	}
@@ -218,6 +220,8 @@ class App
 			}
 
 			$file = explode("\n", $read);
+			unset($file[0]);
+			$file = array_values($file);
 			unset($file[0]);
 			$file = array_values($file);
 			unset($file[0]);

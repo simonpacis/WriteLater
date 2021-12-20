@@ -37,7 +37,7 @@ Underneath the third line you can type whatever you want to, and when run throug
 
 will be replaced with the contents of Background.md.
 
-Both of the first two lines will not be included in your output document.
+Both of the first three lines will not be included in your output document.
 
 ## Recursion
 

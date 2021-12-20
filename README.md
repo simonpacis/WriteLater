@@ -143,6 +143,10 @@ Normally, the command-line entered arguments take precedence over all configurat
 
 Which would mean that entered command-line arguments that conflict with the configuration file would not take precedence.
 
+### Document mode
+Sometimes you just need a single word, description etc., such as "blue" or "James".
+Change the third line of a document to "Snippet" instad of "Document", and this file will be included without any newlines.
+
 # Write Later in Vim
 I write exclusively in Vim, so I wrote up a little script which opens a window in Vim with the output of wl --action list.
 Just press Leader + p to open the window, Leader + p to close it again.

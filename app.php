@@ -10,6 +10,7 @@ class App
 	public $returnarr;
 	public $maintext;
 	public $maintext_raw;
+	public $maindir;
 
 	public function __construct()
 	{
@@ -25,12 +26,14 @@ class App
 			'save' => 'false',
 			'defaultStatus' => 'Pending',
 			'tableStyle' => 'pretty',
-			'defaultDocMode' => 'Document'
+			'defaultDocMode' => 'Document',
+			'returnValue' => 'normal'
 		];
 
 		$this->returnarr = [];
 		$this->maintext = "";
 		$this->maintext_raw = "";
+		$this->maindir = "";
 
 	}
 
@@ -107,9 +110,14 @@ class App
 	{
 		while(file_exists('.wldir'))
 		{
-			echo "This seems to be a a subfile directory. Going up a level and trying again.\n";
+			if($this->get('returnValue') == 'normal')
+			{
+				echo "This seems to be a a subfile directory. Going up a level and trying again.\n";
+			}
 			chdir('../');
 		}
+		$this->maindir = getcwd();
+
 		if(!file_exists('.wlmain'))
 		{
 			file_put_contents('.wlmain', 'This is the main Write Later directory.');
@@ -145,8 +153,7 @@ class App
 		if(!file_exists($path))
 		{
 			$default_status = ucfirst($this->get('defaultStatus'));
-			$default_document_mode = ucfirst($this->get('defaultDocMode'));
-			file_put_contents($path, "[//]: # (" . $pretag['name'] . ": " . $pretag['description'] . ")\n[//]: # (Status: ".$default_status.")\n[//]: # (Mode: ".$default_document_mode.")");
+			file_put_contents($path, "[//]: # (" . $pretag['name'] . ": " . $pretag['description'] . ")\n[//]: # (Status: ".$default_status.")");
 		}
 		return true;
 	}
@@ -220,8 +227,6 @@ class App
 			}
 
 			$file = explode("\n", $read);
-			unset($file[0]);
-			$file = array_values($file);
 			unset($file[0]);
 			$file = array_values($file);
 			unset($file[0]);

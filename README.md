@@ -1,5 +1,9 @@
 # Write Later
 
+## Warning
+I recently discovered a severe bug that's crippling to this project, as it doesn't allow for more than one tag per document.
+Working on a rewrite, just fyi.
+
 While writing I had the thought that sometimes there are parts of my text that I am not ready to write yet, but I know where I want it.
 
 At the same time i use Pandoc for my citations, which use the syntax [@Key Pages].

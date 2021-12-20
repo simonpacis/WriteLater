@@ -20,7 +20,6 @@ trait ReplaceTrait
 
 			$index = strpos($string_raw, $tag_start . $tag['name']);
 			$end_index = strpos($string_raw, $tag_end, $index);
-			$remove_newlines = false;
 
 			if(count($tag['tags']) > 0)
 			{
@@ -29,21 +28,8 @@ trait ReplaceTrait
 				$string_raw = str_replace($substr, $file, $string_raw);
 
 				$replacement = $this->traverseResultReplace($tag['tags'], $path);
+
 				$file = explode("\n", $replacement);
-				
-				if(array_key_exists(2, $file))
-				{
-					if(substr($file[2], 0, 4) == "[//]")
-					{
-						$mode = explode(")", explode(": ", $file[2])[2])[0];
-						if(strtolower($mode) == "snippet")
-						{
-							$remove_newlines = true;
-						}
-					}
-				}
-				unset($file[0]);
-				$file = array_values($file);
 				unset($file[0]);
 				$file = array_values($file);
 				unset($file[0]);
@@ -51,40 +37,17 @@ trait ReplaceTrait
 				$file = join("\n", $file);
 
 				$substr = substr($string_raw, $index, ($end_index - ($index-1)));
-				if($remove_newlines)
-				{
-					$file = str_replace(["\n", "\r"], '', $file);
-				}
 				$string_raw = str_replace($substr, $file, $string_raw);
 
 			} else {
 				$file = file_get_contents($tag['path'] . $tag['name'] . ".md");
 				$file = explode("\n", $file);
-				if(array_key_exists(2, $file))
-				{
-					if(substr($file[2], 0, 4) == "[//]")
-					{
-						$mode = explode(")", explode(": ", $file[2])[2])[0];
-						if(strtolower($mode) == "snippet")
-						{
-							$remove_newlines = true;
-						}
-					}
-				}
-				unset($file[0]);
-				$file = array_values($file);
 				unset($file[0]);
 				$file = array_values($file);
 				unset($file[0]);
 				$file = array_values($file);
 				$file = join("\n", $file);
 				$substr = substr($string_raw, $index, ($end_index - ($index-1)));
-
-				if($remove_newlines)
-				{
-					$file = str_replace(["\n", "\r"], '', $file);
-				}
-
 				$string_raw = str_replace($substr, $file, $string_raw);
 			}
 
@@ -95,7 +58,6 @@ trait ReplaceTrait
 
 
 	}
-
 	public function performReplacement()
 	{
 		global $app;
@@ -104,7 +66,12 @@ trait ReplaceTrait
 
 		file_put_contents($app->get('outputFile'), $mainfile);
 
-		echo "Replacement tags replaced, file saved as \"".$app->get('outputFile')."\".\n";
+		if($app->get('returnValue') == 'normal')
+		{
+			echo "Replacement tags replaced, file saved as \"".$app->get('outputFile')."\".\n";
+		} else {
+			echo $app->maindir;
+		}
 
 
 

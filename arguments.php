@@ -80,11 +80,11 @@ $getopts->addOption('defaultStatus')
 		->description('The default status of newly created files. Defaults to "Pending". Will automatically uppercase first letter.')
 		->defaultValue('empty');
 
-$getopts->addOption('defaultDocMode')
-		->short('c')
-		->long('default-doc-mode')
-		->argument('default-doc-mode')
-		->description('The default inclusion mode for a document. If set to snippet, snippet will be the default mode for a document. This means that no newline will be added before or after the first line of the document. This is useful for things such as names or eye-color etc. Acceptable options are: document|snippet. Defaults to "document".')
+$getopts->addOption('returnValue')
+		->short('u')
+		->long('return-value')
+		->argument('return-value')
+		->description('What to be returned by WriteLater. If set to directory will output the path to the main WriteLater directory. Acceptable options are: normal|directory. Defaults to "normal".')
 		->defaultValue('empty');
 
 $getopts->parse();

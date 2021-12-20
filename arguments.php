@@ -84,7 +84,7 @@ $getopts->addOption('defaultDocMode')
 		->short('c')
 		->long('default-doc-mode')
 		->argument('default-doc-mode')
-		->description('The default inclusion mode for the document. If set to snippet, no newline will be added before or after the first line of the document. This is useful for things such as names or eye-color etc. Acceptable options are: document|snippet. Defaults to "document".')
+		->description('The default inclusion mode for a document. If set to snippet, snippet will be the default mode for a document. This means that no newline will be added before or after the first line of the document. This is useful for things such as names or eye-color etc. Acceptable options are: document|snippet. Defaults to "document".')
 		->defaultValue('empty');
 
 $getopts->parse();

@@ -25,7 +25,7 @@ class App
 			'save' => 'false',
 			'defaultStatus' => 'Pending',
 			'tableStyle' => 'pretty',
-			'defaultDocMode' => 'document'
+			'defaultDocMode' => 'Document'
 		];
 
 		$this->returnarr = [];

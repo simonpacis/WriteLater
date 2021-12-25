@@ -1,8 +1,8 @@
 # Write Later
 
 ## Warning
-I recently discovered a severe bug that's crippling to this project, as it doesn't allow for more than one tag per document.
-Working on a rewrite, just fyi.
+I recently discovered a bug in the recursive function.
+For now, you cannot go deeper than two levels, that is to say this is the maximum file tree: Subfiles/Level1/Level2
 
 While writing I had the thought that sometimes there are parts of my text that I am not ready to write yet, but I know where I want it.
 

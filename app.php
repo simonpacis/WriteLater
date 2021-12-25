@@ -13,6 +13,7 @@ class App
 	public $maindir;
 	public $pretags;
 	public $tags;
+	public $return_text;
 
 	public function __construct()
 	{
@@ -38,6 +39,7 @@ class App
 		$this->maindir = "";
 		$this->pretags = [];
 		$this->tags = [];
+		$this->return_text = "";
 
 	}
 
@@ -128,7 +130,6 @@ class App
 		}
 
 		$parse = $this->parseFile($this->get('mainFile'));
-		print_r($parse);
 		return $parse;
 	}
 

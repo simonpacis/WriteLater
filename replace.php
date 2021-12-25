@@ -20,14 +20,16 @@ trait ReplaceTrait
 
 			$index = strpos($string_raw, $tag_start . $tag['name']);
 			$end_index = strpos($string_raw, $tag_end, $index);
+			$substr = substr($string_raw, $index, ($end_index - ($index-1)));
 
 			if(count($tag['tags']) > 0)
 			{
 				$path = $tag['path'] . $tag['name'] . ".md";
 				$substr = substr($string_raw, $index, ($end_index - ($index-1)));
-				$string_raw = str_replace($substr, $file, $string_raw);
+
 
 				$replacement = $this->traverseResultReplace($tag['tags'], $path);
+
 
 				$file = explode("\n", $replacement);
 				unset($file[0]);

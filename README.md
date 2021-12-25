@@ -32,8 +32,6 @@ This creates a file "Background.md" in the directory "Subfiles", with the follow
 ```
 [//]: # (Background: Background info for this part would be nice.)
 [//]: # (Status: Pending)
-[//]: # (Mode: Document)
-
 ```
 
 Underneath the third line you can type whatever you want to, and when run through Write Later with the replace action 

@@ -2,7 +2,9 @@
 
 ## Warning
 I recently discovered a bug in the recursive function.
-For now, you cannot go deeper than two levels, that is to say this is the maximum file tree: Subfiles/Level1/Level2
+For now, you cannot go deeper than two levels, that is to say this is the maximum file tree: Subfiles/Level1/Level2.
+A Subfiles/Level1/Level2/Level3.md would not work at the moment.
+Working on fixing this permanently.
 
 While writing I had the thought that sometimes there are parts of my text that I am not ready to write yet, but I know where I want it.
 

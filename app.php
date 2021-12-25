@@ -11,6 +11,8 @@ class App
 	public $maintext;
 	public $maintext_raw;
 	public $maindir;
+	public $pretags;
+	public $tags;
 
 	public function __construct()
 	{
@@ -34,6 +36,8 @@ class App
 		$this->maintext = "";
 		$this->maintext_raw = "";
 		$this->maindir = "";
+		$this->pretags = [];
+		$this->tags = [];
 
 	}
 
@@ -122,7 +126,10 @@ class App
 		{
 			file_put_contents('.wlmain', 'This is the main Write Later directory.');
 		}
-		return $this->parseFile($this->get('mainFile'));
+
+		$parse = $this->parseFile($this->get('mainFile'));
+		print_r($parse);
+		return $parse;
 	}
 
 	public function getPath($file)
@@ -165,8 +172,6 @@ class App
 		$tag_end = ']';
 		$mainfile = S::create($this->getFile($file));
 		$path = $this->getPath($file);
-		$pretags = [];
-		$tags = [];
 		$descriptions = [];
 
 		$last_index = 0;
@@ -192,13 +197,13 @@ class App
 				$last_find = "none";
 			} else {
 				$last_index = $last_index + $last_find->length();
-				array_push($pretags, ['tag' => $last_find, 'path' => $path]);
+				array_push($this->pretags, ['tag' => $last_find, 'path' => $path]);
 			}
 			$i++;
 		}
 
 
-		foreach($pretags as $pretag)
+		foreach($this->pretags as $pretag)
 		{
 			$tag = $pretag['tag'];
 			$explosion = explode(" ", $tag);
@@ -235,10 +240,22 @@ class App
 
 			$wordcount = str_word_count($read);
 
-			array_push($tags, ['name' => $name, 'description' => $desc, "file" => $file, 'status' => $status, 'path' => $pretag['path'], "tags" => $rec_tags, 'wordcount' => $wordcount]);
+			$tag = ['name' => $name, 'description' => $desc, "file" => $file, 'status' => $status, 'path' => $pretag['path'], "tags" => $rec_tags, 'wordcount' => $wordcount];
+			$key = $pretag['path'] . $name;
+			if($pretag['path'] == $this->get('subFileDirectory') . "/")
+			{
+				if(!array_key_exists($key, $this->tags))
+				{
+					$this->tags[$key] = $tag;
+				}
+			} else {
+				$this->tags[rtrim($pretag['path'], "/")]['tags'][$key] = $tag;
+
+			}
 		}
 
-		return $tags;
+
+		return $this->tags;
 
 	}
 

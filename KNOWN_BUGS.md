@@ -13,6 +13,8 @@ None.
 
 Notice that the file Subfiles/Chapter1/Chapter2.md exists.
 This file should not exist.
-Luckily, this file will not be included in outout.
+Luckily, this file will not be included in output.
+
+The error lies somewhere in pretag-generation.
 
 ## Minor

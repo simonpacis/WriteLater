@@ -11,7 +11,8 @@ None.
 - Add [$Chapter1] and [$Chapter2] to Main.md and run prep action.
 - Add [$Part1] to Subfiles/Chapter1.md and Subfiles/Chapter2.md and run prep action.
 
-having Subfiles/Chapter1/Part1.md will also create Subfiles/Chapter1/Chapter1.md file.
-This file will not be included in outout.
+Notice that the file Subfiles/Chapter1/Chapter2.md exists.
+This file should not exist.
+Luckily, this file will not be included in outout.
 
 ## Minor

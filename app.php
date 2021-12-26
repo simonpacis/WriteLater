@@ -171,9 +171,19 @@ class App
 		$tag = $this->get('tag');
 		$tag_start = '['.$tag;
 		$tag_end = ']';
+		$explosion_path = explode("/", $file);
+		if(array_key_exists(2, $explosion_path))
+		{
+
+			if(explode(".md", $explosion_path[2])[0] == $explosion_path[1])
+			{
+				return "";
+			} 
+		}
 		$mainfile = S::create($this->getFile($file));
 		$path = $this->getPath($file);
 		$descriptions = [];
+		$topfile = $file;
 
 		$last_index = 0;
 		$last_find = "";
@@ -204,9 +214,11 @@ class App
 		}
 
 
+
 		foreach($this->pretags as $pretag)
 		{
 			$tag = $pretag['tag'];
+			$path = $this->getPath($topfile);
 			$explosion = explode(" ", $tag);
 			$name = $explosion[0];
 			$pretag['name'] = $name;
@@ -220,7 +232,14 @@ class App
 			$file = "No";
 			$status = "Not created";
 			$newpath = $path . $name . ".md";
-			$this->makeFile($newpath, $pretag);
+			$explosion_path = explode("/", $path);
+			$name_test = $explosion_path[count($explosion_path)-2];
+
+
+			if($name != $name_test)
+			{
+				$this->makeFile($newpath, $pretag);
+			}
 			$file = "Yes";
 			$read = file_get_contents($pretag['path'] . $name . ".md");
 			$status = explode(")", explode(": ", explode("\n", $read)[1])[2])[0];

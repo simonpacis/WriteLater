@@ -29,7 +29,6 @@ class App
 			'save' => 'false',
 			'defaultStatus' => 'Pending',
 			'tableStyle' => 'pretty',
-			'defaultDocMode' => 'Document',
 			'returnValue' => 'normal'
 		];
 
@@ -242,6 +241,8 @@ class App
 			}
 			$file = "Yes";
 			$read = file_get_contents($pretag['path'] . $name . ".md");
+			$pretag['description'] = (explode(")", explode(": ", explode("\n", $read)[0])[2])[0]);
+			$desc = $pretag['description'];
 			$status = explode(")", explode(": ", explode("\n", $read)[1])[2])[0];
 
 			$newpath = $path . $name . ".md";

@@ -12,6 +12,11 @@ trait ReplaceTrait
 		$end_index = 0;
 		$replacements = [];
 		$return_string = $string_raw;
+		if($results == null)
+		{
+			echo "No tags found. Exiting.";
+			die();
+		}
 		foreach($results as $tag)
 		{
 			$tag_marker = $app->get('tag');

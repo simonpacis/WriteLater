@@ -7,7 +7,7 @@ A Subfiles/Level1/Level2/Level3.md would not work at the moment.
 Working on fixing this permanently.
 
 ## What is this project?
-Essentially it is a minimal Markdown-file organizer and compiler.
+Essentially it is a Markdown-file compiler.
 You can refer to other Markdown files that will then be compiled into one single Markdown file when run through WriteLater.
 
 ## How did it come about, and how does it work?

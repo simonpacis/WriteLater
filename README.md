@@ -10,7 +10,18 @@ Working on fixing this permanently.
 Essentially it is a Markdown-file compiler.
 You can refer to other Markdown files that will then be compiled into one single Markdown file when run through WriteLater.
 
-## How did it come about, and how does it work?
+It can be used for organizing books, or it can be used to insert certain tidbits of information that you want to make sure is the same everywhere in your document.
+
+### Examples
+#### As a book organizer
+Imagine splitting every single chapter into a separate Markdown file, and then you can compile it all together into one single Markdown file with WriteLater.
+This makes it easy to be able to keep track of your project as it grows in size.
+
+#### As a tidbit-inserter
+Imagine you want to make sure your character has the same eye-color throughout your story?
+You could have a Markdown document that simply says "green", and then have that inserted everywhere you call it.
+
+## How did it come about, and how does it actually work?
 While writing I had the thought that sometimes there are parts of my text that I am not ready to write yet, but I know where I want it.
 
 At the same time I use Pandoc for my citations, and Pandoc uses the syntax [@Key Pages].

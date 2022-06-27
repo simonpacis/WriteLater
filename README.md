@@ -6,12 +6,16 @@ For now, you cannot go deeper than two levels, that is to say this is the maximu
 A Subfiles/Level1/Level2/Level3.md would not work at the moment.
 Working on fixing this permanently.
 
-## Readme
+## What is this project?
+Essentially it is a minimal Markdown-file organizer and compiler.
+You can refer to other Markdown files that will then be compiled into one single Markdown file when run through WriteLater.
+
+## How did it come about, and how does it work?
 While writing I had the thought that sometimes there are parts of my text that I am not ready to write yet, but I know where I want it.
 
-At the same time i use Pandoc for my citations, which use the syntax [@Key Pages].
+At the same time I use Pandoc for my citations, and Pandoc uses the syntax [@Key Pages].
 
-So, I started work on Write Later.
+Inspired by that, I started work on Write Later.
 In your Markdown document, when there's something you want to Write Later, simply insert the replacement key [$Key Description (optional)].
 
 When run through Write Later it creates a Markdown file for each replacement key in a directory.
@@ -34,7 +38,7 @@ This creates a file "Background.md" in the directory "Subfiles", with the follow
 [//]: # (Status: Pending)
 ```
 
-Underneath the third line you can type whatever you want to, and when run through Write Later with the replace action 
+Underneath the second line you can type whatever you want to, and when run through Write Later with the replace action 
 
 ```
 [$Background Background info for this part would be nice.]
@@ -42,7 +46,7 @@ Underneath the third line you can type whatever you want to, and when run throug
 
 will be replaced with the contents of Background.md.
 
-Both of the first three lines will not be included in your output document.
+Both of the first two lines will not be included in your output document.
 
 ## Recursion
 
